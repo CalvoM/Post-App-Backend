@@ -1,7 +1,7 @@
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 from post_app_backend import post_app
-post_app.config['SQLALCHEMY_DATABASE_URI']='postgresql://d1r3ct0r:Saminsky!@localhost/d1r3ct0r'
+post_app.config['SQLALCHEMY_DATABASE_URI']='postgresql://d1r3ct0r:SaminSky!@localhost/d1r3ct0r'
 db = SQLAlchemy(post_app) #yet to add flask app
 
 class Post(db.Model):

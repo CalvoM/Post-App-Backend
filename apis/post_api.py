@@ -1,8 +1,8 @@
-from flask import Blueprint,json
+from flask import Blueprint,jsonify,request
 from post_app_backend.models import Post,db
 post_api = Blueprint('post_api',__name__)
 
-@post_api.route('/get/posts')
+@post_api.route('/get/posts/')
 def get_all_posts():
     '''Get all posts'''
     posts = Post.query.all()
