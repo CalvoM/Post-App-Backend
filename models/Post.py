@@ -5,7 +5,7 @@ post_app.config['SQLALCHEMY_DATABASE_URI']='postgresql://d1r3ct0r:SaminSky!@loca
 db = SQLAlchemy(post_app) #yet to add flask app
 
 class Post(db.Model):
-    __tablename__="Post"
+    __tablename__="post"
     id = db.Column(db.Integer,primary_key=True)
     title = db.Column(db.String(40), nullable = False)
     body = db.Column(db.Text, nullable = False)

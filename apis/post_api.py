@@ -6,5 +6,15 @@ post_api = Blueprint('post_api',__name__)
 def get_all_posts():
     '''Get all posts'''
     posts = Post.query.all()
-    posts_list = [p.deserialise for p in posts]
+    posts_list = [p.serialize for p in posts]
     return jsonify(posts=posts_list)
+
+@post_api.route('/add/posts/',methods=['POST'])
+def add_post():
+    post = request.json
+    title = post['title']
+    body = post['body']
+    new_post = Post(title=title,body=body)
+    db.session.add(new_post)
+    db.session.commit()
+    return {'resp':200}
