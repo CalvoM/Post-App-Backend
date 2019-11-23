@@ -18,3 +18,27 @@ def add_post():
     db.session.add(new_post)
     db.session.commit()
     return {'resp':200}
+
+@post_api.route('/increment_upvote/',methods=['POST'])
+def increment_post_vote():
+    post = request.json
+    print(post)
+    id = post['id']
+    increment_value = post['increment_value']
+    post_to_update = Post.query.filter_by(id=post['id']).first()
+    post_to_update.upvotes +=1
+    db.session.commit()
+    print(post_to_update)
+    return {'resp':200}
+
+@post_api.route('/increment_downvote/',methods=['POST'])
+def decrement_post_vote():
+    post = request.json
+    print(post)
+    id = post['id']
+    increment_value = post['increment_value']
+    post_to_update = Post.query.filter_by(id=post['id']).first()
+    post_to_update.downvotes +=1
+    db.session.commit()
+    print(post_to_update)
+    return {'resp':200}

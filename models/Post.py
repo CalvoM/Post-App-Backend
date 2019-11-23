@@ -19,6 +19,7 @@ class Post(db.Model):
     @property
     def serialize(self):
         return{
+            'id':self.id,
             'title':self.title,
             'body':self.body,
             'posted_at':self.posted_at,
